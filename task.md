@@ -59,7 +59,7 @@ eksperymentów). Analiza powinna też uwzględnić dwa różne typy kompilacji:
 
 Rozwiązania w innej formie lub niespełniające tych wymagań nie będą przyjmowane:
 
- * należy sklonować gitowe repozytorium https://www.mimuw.edu.pl/~aj334557/shamans.git/
+ * należy sklonować gitowe repozytorium https://www.mimuw.edu.pl/~aj334557/shamans/.git/
  * rozwiązanie proszę dostarczyć jako wynik `git diff` wobec czubka gałęzi
    master w tym repozytorium
  * `cmake . && make` powinno skompilować jego zawartość; tam jest przygotowane
