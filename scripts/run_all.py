@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 import collections
 import os
 import os.path
@@ -145,7 +146,7 @@ def was_test_fast_enough(test):
                                           test, PERFORMANCE_RESULTS[metric],
                                           threshold.threshold)
                         return False
-  
+
     return True
 
 def print_performance_results():

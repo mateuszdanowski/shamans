@@ -11,6 +11,8 @@
 
 class Adventure {
  public:
+  virtual ~Adventure() = default;
+
   virtual uint64_t packEggs(std::vector<Egg> eggs, BottomlessBag& bag) = 0;
 
   virtual void arrangeSand(std::vector<GrainOfSand>& grains) = 0;
@@ -23,17 +25,18 @@ class LonesomeAdventure : public Adventure {
   LonesomeAdventure() {}
 
   virtual uint64_t packEggs(std::vector<Egg> eggs, BottomlessBag& bag) {
-    // TODO(jackowski) Implement this methos
-    return 0;
+    // TODO Implement this method
+    throw std::runtime_error("Not implemented");
   }
 
   virtual void arrangeSand(std::vector<GrainOfSand>& grains) {
-    // TODO(jackowski) Implement this methos
+    // TODO Implement this method
+    throw std::runtime_error("Not implemented");
   }
 
   virtual Crystal selectBestCrystal(std::vector<Crystal>& crystals) {
-    // TODO(jackowski) Implement this methos
-    return Crystal(0);
+    // TODO Implement this method
+    throw std::runtime_error("Not implemented");
   }
 };
 
@@ -44,17 +47,19 @@ class TeamAdventure : public Adventure {
         councilOfShamans(numberOfShamansArg) {}
 
   uint64_t packEggs(std::vector<Egg> eggs, BottomlessBag& bag) {
-    // TODO(jackowski) Implement this methos
-    return 0;
+    // TODO Implement this method
+    throw std::runtime_error("Not implemented");
+    (void) numberOfShamans;
   }
 
   virtual void arrangeSand(std::vector<GrainOfSand>& grains) {
-    // TODO(jackowski) Implement this methos
+    // TODO Implement this method
+    throw std::runtime_error("Not implemented");
   }
 
   virtual Crystal selectBestCrystal(std::vector<Crystal>& crystals) {
-    // TODO(jackowski) Implement this methos
-    return Crystal(0);
+    // TODO Implement this method
+    throw std::runtime_error("Not implemented");
   }
 
  private:
