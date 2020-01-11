@@ -26,20 +26,26 @@ porównać wszystkie kryształy w celu wybrania tego najlepszego.
 
 
 ## Zadanie
-Celem zadania jest zaimplementowanie w C++ algorytmów w sposób sekwencyjny oraz współbieżnych trzech algorytmów, rozwiązujących następujące problemy:
-1) Dyskretny problem plecakowy
-2) Sortowanie przez scalanie (Merge sort) lub sortowanie szybkie (Quicksort)
-3) Znajdowanie elementu maksymalnego
+Celem zadania jest zaimplementowanie w C++ algorytmów w sposób sekwencyjny oraz 
+współbieżnych trzech algorytmów, rozwiązujących następujące problemy:
+
+- Dyskretny problem plecakowy (problem 1.)
+- Sortowanie przez scalanie (Merge sort) lub sortowanie szybkie (Quicksort) (problem 2.)
+- Znajdowanie elementu maksymalnego (problem 3.)
 
 Implementacje algorytmów muszą znajdować prawidłowe rozwiązanie (a nie jego
 przybliżenie). Implementacje sekwencyjne powinny być zaimplementowanie wydajnie:
-odpowiednio przy użyciu programowania dynamicznego, w czasie O(NlogN),
- w czasie O(N). Implementacje współbieżne powinny osiągać praktyczne przyspieszenie
+
+- Problem 1. przy użyciu programowania dynamicznego
+- Problem 2. w czasie O(NlogN)
+- Problem 3. w czasie O(N)
+
+Implementacje współbieżne powinny osiągać praktyczne przyspieszenie
 (to znaczy działać szybciej niż ich wersje sekwencyjne dla  odpowiednio dużych danych
-wejściowych), przy czym wyniki będą różne dla poszczególnych algorytmów i różnych danych
-wejściowych. Celem zadania nie jest implementacja najszybszych współbieżnych algorytmów
-dla powyższych problemów opublikowanych w pracach naukowych, tylko wymyślenie własnych
-praktycznych modyfikacji oraz analiza ich wydajności.
+wejściowych), przy czym osiągnięte przyspieszenia będą różne dla poszczególnych algorytmów 
+i różnych danych wejściowych. Celem zadania nie jest implementacja najszybszych współbieżnych 
+algorytmów dla powyższych problemów opublikowanych w pracach naukowych, tylko wymyślenie 
+własnych praktycznych modyfikacji oraz analiza ich wydajności.
 
 Do rozwiązania powinien być dołączony raport w PDF, przedstawiający analizę
 czasu działania zaimplementowanych algorytmów w sposób sekwencyjny oraz
@@ -50,7 +56,8 @@ i średnich. Najlepiej, gdyby eksperymenty zostały przeprowadzone w dwóch ró�
 środowiskach np. laptop lub komputer w laboratorium i maszyna students (to zrozumiałe,
 że laptop może mieć niewystarczającą liczbę rdzeni do przeprowadzenia niektórych
 eksperymentów). Analiza powinna też uwzględnić dwa różne typy kompilacji:
-"-DCMAKE_BUILD_TYPE=Release" oraz  "-DCMAKE_BUILD_TYPE=Debug". W raporcie można uwzględnić również wyniki własnych testów.
+"-DCMAKE_BUILD_TYPE=Release" oraz  "-DCMAKE_BUILD_TYPE=Debug". W raporcie można uwzględnić również 
+wyniki własnych testów.
 
 
 
@@ -75,11 +82,11 @@ Rozwiązania w innej formie lub niespełniające tych wymagań nie będą przyjm
    oprócz pthreads i załączonej biblioteki threadpool
  * kompilacja ma nie generować żadnych ostrzeżeń
  * kod ma być sformatowany za pomocą skryptu `scripts/format.sh`
- * Skrypty `scripts/tidy.sh` oraz `scripts/lint.sh` nie powinny wyświetlać
+ * skrypty `scripts/tidy.sh` oraz `scripts/lint.sh` nie powinny wyświetlać
    żadnych ostrzeżeń (do ich działania potrzebne są `clang-tidy` i
    `clang-format`). Ponieważ clang-tidy nie działa na students dopuszczalne
     jest pominięcie clang-tidy, o ile zadbasz o jakość kodu we własnym zakresie.
- * testy obecny w repozytorium mają przechodzić bez modyfikacji
+ * testy obecne w repozytorium mają przechodzić bez modyfikacji
  * nazwy zmiennych, klas, komentarze, etc. proszę pisać w języku angielskim
 
 
@@ -98,10 +105,14 @@ Za zadanie można uzyskać 10 pkt, które są podzielone w następujący sposób
 Osiągnięcie dużego przyspieszenia zrównoleglając algorytmy jest zdaniem trudnym.
 Wymaga nie tylko ograniczenia synchronizacji między wątkami do minimum, ale również
 efektywnego wykorzystania cache procesora. Warto pamiętać, aby rozwiązanie:
+
 - Grupowało zadania przydzielane wątkom o ile to możliwe
-- Dbało o to, by wątki (na ile to możliwe) korzystały z odległych obszarów pamięci
-- Dbało o to, by pojedynczy wątek ograniczał operacje na odległych od siebie obszarach
-  pamięci.
+- Dbało o to, by różne wątki (na ile to możliwe) korzystały z odległych obszarów pamięci, aby ograniczyć false sharing.
+- Dbało o to, by pojedynczy jak najwięcej sekwencyjnie czytał dane które są blisko siebie w pamięci, aby umożliwić efektywny prefetch.
+
+Dobrym wprowadzeniem na temat działania cache procesora jest ten artykuł: 
+[https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a](https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a)
+
 
 Mimo zastosowania się do powyższych wskazówek skalowalność algorytmów może nie być
 duża, np. jeśli algorytm działa tak efektywnie, że już przy małej liczbie wątków
@@ -112,16 +123,8 @@ uruchomienie algorytmów z wykomentowaną zawartością funkcji burden i zrozum
 jak działają zrównoleglone algorytmy w takim scenariuszu, ale nie jest to wymaganą
 częścią raportu.
 
-
 ## FAQ
 Tutaj będą pojawiać się ciekawsze z zadanych pytań. Proszę je kierować pod adres
 aj334557@mimuw.edu.pl.~
-~
-~
-~
-~
-~
-~
-~
-~
-~
+
+
