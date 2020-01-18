@@ -31,7 +31,7 @@ void testCase3(Adventure &adventure) {
     eggs.push_back(Egg(i, i * i + 7));
   }
 
-  correctnessTest(eggs, BottomlessBag(100), 2962, adventure);
+  correctnessTest(eggs, BottomlessBag(100), 2969, adventure);
 }
 
 void testCase4(Adventure &adventure) {
@@ -50,7 +50,7 @@ void testCase5(Adventure &adventure) {
     eggs.push_back(Egg(i, i * 5 + 33));
   }
 
-  correctnessTest(eggs, BottomlessBag(2000), 12074, adventure);
+  correctnessTest(eggs, BottomlessBag(2000), 12079, adventure);
 }
 
 int main(int argc, char **argv) {
