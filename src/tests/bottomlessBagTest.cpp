@@ -55,7 +55,7 @@ void testCase5(Adventure &adventure) {
 
 int main(int argc, char **argv) {
   for (std::shared_ptr<Adventure> adventure :
-       std::vector<std::shared_ptr<Adventure> >{
+       std::vector<std::shared_ptr<Adventure>>{
            std::shared_ptr<Adventure>(new LonesomeAdventure{}),
            std::shared_ptr<Adventure>(new TeamAdventure(1)),
            std::shared_ptr<Adventure>(new TeamAdventure(2)),
